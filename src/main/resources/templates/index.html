@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Index - The Blaster Depository</title>
+</head>
+<body>
+    <nav>
+        <a th:href="@{/}">List Blasters</a>
+        <a th:href="@{/add-blaster}">Add Blaster</a>
+    </nav>
+
+    <h1>List of blasters currently stored</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Ammo Capacity</th>
+                <th>Ammo Quality</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="dto : ${blasterDTOs}">
+                <td th:text="${dto.getName()}"></td>
+                <td th:text="${dto.getAmmunitionCapacity()}"></td>
+                <td th:text="${dto.getAmmunitionQuality()}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

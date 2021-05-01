@@ -1,5 +1,6 @@
 package com.example.springbootformexample.controller;
 
+import com.example.springbootformexample.data.AnnonsRepository;
 import com.example.springbootformexample.data.BlasterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,16 +9,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class IndexController {
-    private final BlasterRepository repository;
+    //private final BlasterRepository repository;
+    private final AnnonsRepository repository;
 
     @Autowired
-    public IndexController(BlasterRepository repository) {
+    public IndexController(AnnonsRepository repository) {
         this.repository = repository;
     }
 
     @GetMapping("/")
     public String getIndexPage(Model model) {
-        model.addAttribute("blasterDTOs", repository.findAllAsDTO());
+        model.addAttribute("annonsDTOs", repository.findAllAsDTO());
 
         return "index";
     }

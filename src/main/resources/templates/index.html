@@ -21,10 +21,10 @@
             </tr>
         </thead>
         <tbody>
-            <tr th:each="dto : ${blasterDTOs}">
+            <tr th:each="dto : ${annonsDTOs}">
                 <td th:text="${dto.getName()}"></td>
-                <td th:text="${dto.getAmmunitionCapacity()}"></td>
-                <td th:text="${dto.getAmmunitionQuality()}"></td>
+                <td th:text="${dto.getPrice()}"></td>
+                <td th:text="${dto.getKommun()}"></td>
             </tr>
         </tbody>
     </table>

@@ -2,19 +2,19 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Add Blaster - The Blaster Depository</title>
+    <title>Free advertising for Indonesian market</title>
 </head>
 <body>
     <nav>
-        <a th:href="@{/}">List Blasters</a>
-        <a th:href="@{/add-blaster}">Add Blaster</a>
+        <a th:href="@{/}">List all ads</a>
+        <a th:href="@{/add-blaster}">Add ad</a>
     </nav>
 
-    <h1>Add Blaster</h1>
+    <h1>Add ad</h1>
 
     <form th:action="@{/blasters}" method="post">
         <label for="name">Name: </label>
-        <input type="text" name="name" id="name" placeholder="e.g. E-11 Blaster Rifle" required />
+        <input type="text" name="name" id="name" placeholder="What are you selling?" required />
 
         <label for="capacity">Ammunition Capacity</label>
         <input type="number" name="capacity" id="capacity" placeholder="e.g. 50" required />

@@ -42,6 +42,30 @@ public class Annons {
         this.name = name;
     }
 
+    public Person getPerson() {
+        return person;
+    }
+
+    public void setPerson(Person person) {
+        this.person = person;
+    }
+
+    public String getProvins() {
+        return provins;
+    }
+
+    public void setProvins(String provins) {
+        this.provins = provins;
+    }
+
+    public String getKommun() {
+        return kommun;
+    }
+
+    public void setKommun(String kommun) {
+        this.kommun = kommun;
+    }
+
     public int getSize_of_area() {
         return size_of_area;
     }

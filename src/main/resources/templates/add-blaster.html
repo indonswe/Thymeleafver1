@@ -13,8 +13,32 @@
     <h1>Add ad</h1>
 
     <form th:action="@{/blasters}" method="post">
+
         <label for="name">Name: </label>
         <input type="text" name="name" id="name" placeholder="What are you selling?" required />
+
+        <label for="provins">provins: </label>
+        <input type="text" name="provins" id="provins" placeholder="Provins?" required />
+
+        <label for="kommun">kommun: </label>
+        <input type="text" name="kommun" id="kommun" placeholder="Kommun" required />
+
+        <label for="size_of_area">Size_of_area: </label>
+        <input type="number" name="size_of_area" id="size_of_area" placeholder="Size_of_area" required />
+
+        <label for="size_of_buildings">Size_of_buildings: </label>
+        <input type="number" name="size_of_buildings" id="size_of_buildings" placeholder="Size of buildings" required />
+
+        <label for="price">Price: </label>
+        <input type="number" name="price" id="price" placeholder="Price" required />
+
+        <label for="category">Category: </label>
+        <select name="category" id="category" required>
+            <option value="">--Please choose an option--</option>
+            <option value="LOW">Low quality (Produces red bolt)</option>
+            <option value="MEDIUM">Medium quality (Produces yellow bolt)</option>
+            <option value="HIGH">High quality (Produces green bolt)</option>
+        </select>
 
         <label for="capacity">Ammunition Capacity</label>
         <input type="number" name="capacity" id="capacity" placeholder="e.g. 50" required />
@@ -22,12 +46,14 @@
         <label for="quality">Ammunition Quality</label>
         <select name="quality" id="quality" required>
             <option value="">--Please choose an option--</option>
-            <option value="LOW">Low quality (Produces red bolt)</option>
-            <option value="MEDIUM">Medium quality (Produces yellow bolt)</option>
-            <option value="HIGH">High quality (Produces green bolt)</option>
+            <option value="House">House</option>
+            <option value="Forest">Forest</option>
+            <option value="Rubber_trees">Rubber trees</option>
+            <option value="House_and_forest">House and forest</option>
         </select>
 
         <input type="submit" value="Add Blaster" />
     </form>
 </body>
 </html>
+

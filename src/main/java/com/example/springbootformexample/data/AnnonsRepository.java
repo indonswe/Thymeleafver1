@@ -11,7 +11,7 @@ import java.util.Set;
 
 public interface AnnonsRepository extends CrudRepository<Annons, Integer> {
 
-        @Query("SELECT new com.example.springbootformexample.dto.AnnonsDTO(b.name, b.provins, b.kommun, b.size_of_area, b.size_of_buildings, b.price, b.category) FROM Annons b")
+        @Query("SELECT new com.example.springbootformexample.dto.AnnonsDTO(b.name, b.person, b.provins, b.kommun, b.size_of_area, b.size_of_buildings, b.price, b.category) FROM Annons b")
 
     Set<AnnonsDTO> findAllAsDTO();
 }

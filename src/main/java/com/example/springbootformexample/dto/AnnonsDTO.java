@@ -1,9 +1,11 @@
 package com.example.springbootformexample.dto;
 
 import com.example.springbootformexample.model.Category;
+import com.example.springbootformexample.model.Person;
 
 public class AnnonsDTO {
     private String name;
+    private Person person;
     private String provins;
     private String kommun;
     private int size_of_area;
@@ -11,8 +13,9 @@ public class AnnonsDTO {
     private int price;
     private Category category;
 
-    public AnnonsDTO(String name, String provins, String kommun, int size_of_area, int size_of_buildings, int price, Category category) {
+    public AnnonsDTO(String name, Person person, String provins, String kommun, int size_of_area, int size_of_buildings, int price, Category category) {
         this.name = name;
+        this.person = person;
         this.provins = provins;
         this.kommun = kommun;
         this.size_of_area = size_of_area;

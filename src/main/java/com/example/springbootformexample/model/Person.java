@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -18,6 +20,7 @@ public class Person {
     private String username;
     private String password;
     private int phonenumber;
+    private List<Integer> adsid = new ArrayList<Integer>();
 
     public Person(String email, String name, String username, String password, int phonenumber) {
         this.email = email;

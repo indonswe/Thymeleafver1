@@ -1,9 +1,6 @@
 package com.example.springbootformexample.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +17,7 @@ public class Person {
     private String username;
     private String password;
     private int phonenumber;
-    private List<Integer> adsid = new ArrayList<Integer>();
+
 
     public Person(String email, String name, String username, String password, int phonenumber) {
         this.email = email;

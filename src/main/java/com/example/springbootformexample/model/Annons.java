@@ -1,9 +1,6 @@
 package com.example.springbootformexample.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Annons {
@@ -14,6 +11,7 @@ public class Annons {
 
 
     private String name;
+    @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.REFRESH, CascadeType.PERSIST, CascadeType.MERGE})
     private Person person;
     private String provins;
     private String kommun;

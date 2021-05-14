@@ -20,6 +20,7 @@ public class IndexController {
     @GetMapping("/")
     public String getIndexPage(Model model) {
         model.addAttribute("annonsDTOs", repository.findAllAsDTO());
+        System.out.println(repository.findByPerson(1));
 
         return "index";
     }

@@ -28,6 +28,7 @@ public class Databasinstoppare implements ApplicationRunner {
         Annons annons = new Annons("t", person, "a","b", 13,13,300, Category.Rubber_trees);
 
         repository.save(annons);
+        //repository.save(person);
 
     }
 }

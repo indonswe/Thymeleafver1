@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.Set;
+
 public class LogInController {
     private final PersonRepository repository;
 
@@ -39,6 +41,18 @@ public class LogInController {
                         //@RequestParam("phonenumber") int phonenumber)
     {
 
+        Set checkUsername = repository.findByUsername(username);
+        boolean check = true;
+        if (checkUsername.isEmpty()){
+            System.out.println("Incorrect username");
+        }else if (checkUsername.equals(password)){
+            check = false;
+        }
+        if (check){
+            System.out.println("Incorrect password");
+        }else{
+            System.out.println("You logged in");
+        }
 
 
         //repository.save(new Person(email, name, username,password,phonenumber));

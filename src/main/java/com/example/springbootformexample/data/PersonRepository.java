@@ -18,7 +18,7 @@ public interface PersonRepository extends CrudRepository<Person, Integer> {
 
     Set<PersonDTO> findByPerson(@Param("personen") Integer person_id);
 
-    @Query("SELECT new com.example.springbootformexample.dto.PersonDTO(b.email, b.name, b.username, b.password, b.phonenumber) FROM Person b WHERE b.person.name = :person-name")
+    @Query("SELECT new com.example.springbootformexample.dto.PersonDTO(b.email, b.name, b.username, b.password, b.phonenumber) FROM Person b WHERE b.person.username = :username")
 
-    Set<PersonDTO> findByName(@Param("person-name") String person_name);
+    Set<PersonDTO> findByUsername(@Param("username") String person_name);
 }

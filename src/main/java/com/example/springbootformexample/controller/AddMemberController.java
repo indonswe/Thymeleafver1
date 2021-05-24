@@ -46,6 +46,7 @@ public class AddMemberController {
                         @RequestParam("password") String password,
                         @RequestParam("phonenumber") int phonenumber)
                         {
+
         repository.save(new Person(email, name, username,password,phonenumber));
     /*public String addBlaster(@RequestParam("name") String name,
                              @RequestParam("capacity") int capacity,

@@ -11,10 +11,14 @@ import org.springframework.data.repository.query.Param;
 import java.util.Set;
 
 public interface PersonRepository extends CrudRepository<Person, Integer> {
-    @Query("SELECT new com.example.springbootformexample.dto.AnnonsDTO(b.name, b.person, b.provins, b.kommun, b.size_of_area, b.size_of_buildings, b.price, b.category) FROM Annons b")
+    @Query("SELECT new com.example.springbootformexample.dto.PersonDTO(b.email, b.name, b.username, b.password, b.phonenumber) FROM Person b")
     Set<PersonDTO> findAllAsDTO();
 
-    @Query("SELECT new com.example.springbootformexample.dto.AnnonsDTO(b.name, b.person, b.provins, b.kommun, b.size_of_area, b.size_of_buildings, b.price, b.category) FROM Annons b WHERE b.person.id = :personen")
+    @Query("SELECT new com.example.springbootformexample.dto.PersonDTO(b.email, b.name, b.username, b.password, b.phonenumber) FROM Person b WHERE b.person.id = :personen")
 
     Set<PersonDTO> findByPerson(@Param("personen") Integer person_id);
+
+    @Query("SELECT new com.example.springbootformexample.dto.PersonDTO(b.email, b.name, b.username, b.password, b.phonenumber) FROM Person b WHERE b.person.name = :person-name")
+
+    Set<PersonDTO> findByName(@Param("person-name") String person_name);
 }

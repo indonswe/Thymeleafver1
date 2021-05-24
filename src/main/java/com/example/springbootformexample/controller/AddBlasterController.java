@@ -40,6 +40,8 @@ public class AddBlasterController {
 
     @PostMapping("/blasters")
 
+
+
     public String addAd(@RequestParam("name") String name,
     //@RequestParam("person") Person person,
     @RequestParam("provins") String provins,

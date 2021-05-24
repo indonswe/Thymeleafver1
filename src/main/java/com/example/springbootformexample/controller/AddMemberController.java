@@ -37,7 +37,7 @@ public class AddMemberController {
     //Person loged = new Person("mejladdress", "kalle", "anka", "d", 5);
 
 
-    @PostMapping("/blasters")
+    @PostMapping("/members")
 
     public String addAd(@RequestParam("email") String email,
                         //@RequestParam("person") Person person,

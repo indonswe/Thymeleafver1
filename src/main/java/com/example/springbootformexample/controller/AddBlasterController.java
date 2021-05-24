@@ -35,17 +35,20 @@ public class AddBlasterController {
     private int size_of_buildings;
     private int price;
     private Category category;
+    Person loged = new Person("mejladdress", "kalle", "anka", "d", 5);
+
 
     @PostMapping("/blasters")
+
     public String addAd(@RequestParam("name") String name,
-    @RequestParam("person") Person person,
+    //@RequestParam("person") Person person,
     @RequestParam("provins") String provins,
     @RequestParam("kommun") String kommun,
     @RequestParam("size_of_area") int size_of_area,
     @RequestParam("size_of_buildings") int size_of_buildings,
     @RequestParam("price") int price,
     @RequestParam("category") Category category){
-        repository.save(new Annons(name, person, provins,kommun,size_of_area,size_of_buildings,price,category));
+        repository.save(new Annons(name, loged, provins,kommun,size_of_area,size_of_buildings,price,category));
     /*public String addBlaster(@RequestParam("name") String name,
                              @RequestParam("capacity") int capacity,
                              @RequestParam("quality") BlasterAmmunitionQuality quality) {

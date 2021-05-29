@@ -1,14 +1,17 @@
 package com.example.springbootformexample.controller;
 
 import com.example.springbootformexample.data.PersonRepository;
+import com.example.springbootformexample.dto.PersonDTO;
 import com.example.springbootformexample.model.Person;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Set;
 
+@Controller
 public class LogInController {
     private final PersonRepository repository;
 
@@ -41,17 +44,12 @@ public class LogInController {
                         //@RequestParam("phonenumber") int phonenumber)
     {
 
-        Set checkUsername = repository.findByUsername(username);
-        boolean check = true;
-        if (checkUsername.isEmpty()){
-            System.out.println("Incorrect username");
-        }else if (checkUsername.equals(password)){
-            check = false;
-        }
-        if (check){
-            System.out.println("Incorrect password");
-        }else{
+        PersonDTO person = repository.findByUsername(username);
+
+        if (person.getPassword().equals(password)){
             System.out.println("You logged in");
+        }else {
+            System.out.println("Incorrect password");
         }
 
 

@@ -8,6 +8,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
 
 @Controller
 public class AddBlasterController {
@@ -35,6 +38,7 @@ public class AddBlasterController {
     private int size_of_buildings;
     private int price;
     private Category category;
+    private byte[] image;
     Person loged = new Person("mejladdress", "kalle", "anka", "d", 5);
 
 
@@ -49,8 +53,10 @@ public class AddBlasterController {
     @RequestParam("size_of_area") int size_of_area,
     @RequestParam("size_of_buildings") int size_of_buildings,
     @RequestParam("price") int price,
-    @RequestParam("category") Category category){
-        repository.save(new Annons(name, loged, provins,kommun,size_of_area,size_of_buildings,price,category));
+    @RequestParam("category") Category category,
+    @RequestParam("image") MultipartFile image) throws IOException {
+
+        repository.save(new Annons(name, loged, provins,kommun,size_of_area,size_of_buildings,price,category, image.getBytes()));
     /*public String addBlaster(@RequestParam("name") String name,
                              @RequestParam("capacity") int capacity,
                              @RequestParam("quality") BlasterAmmunitionQuality quality) {

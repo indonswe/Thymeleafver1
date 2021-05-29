@@ -19,8 +19,9 @@ public class Annons {
     private int size_of_buildings;
     private int price;
     private Category category;
+    private byte[] image;
 
-    public Annons(String name, Person person, String provins, String kommun, int size_of_area, int size_of_buildings, int price, Category category) {
+    public Annons(String name, Person person, String provins, String kommun, int size_of_area, int size_of_buildings, int price, Category category, byte[] image) {
         this.name = name;
         this.person = person;
         this.provins = provins;
@@ -29,6 +30,7 @@ public class Annons {
         this.size_of_buildings = size_of_buildings;
         this.price = price;
         this.category = category;
+        this.image = image;
     }
     public Annons(){};
 
@@ -94,5 +96,13 @@ public class Annons {
 
     public void setCategory(Category category) {
         this.category = category;
+    }
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
     }
 }

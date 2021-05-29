@@ -12,8 +12,9 @@ public class AnnonsDTO {
     private int size_of_buildings;
     private int price;
     private Category category;
+    private byte[] image;
 
-    public AnnonsDTO(String name, Person person, String provins, String kommun, int size_of_area, int size_of_buildings, int price, Category category) {
+    public AnnonsDTO(String name, Person person, String provins, String kommun, int size_of_area, int size_of_buildings, int price, Category category, byte[] image) {
         this.name = name;
         this.person = person;
         this.provins = provins;
@@ -86,5 +87,13 @@ public class AnnonsDTO {
 
     public void setCategory(Category category) {
         this.category = category;
+    }
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
     }
 }

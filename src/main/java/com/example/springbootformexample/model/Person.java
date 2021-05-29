@@ -14,6 +14,7 @@ public class Person {
     private String email;
     private String name;
     //private String lastName;
+    @Column(unique = true)
     private String username;
     private String password;
     private int phonenumber;

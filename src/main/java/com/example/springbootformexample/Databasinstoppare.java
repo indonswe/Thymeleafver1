@@ -24,11 +24,13 @@ public class Databasinstoppare implements ApplicationRunner {
     public void run(ApplicationArguments args) throws Exception {
         System.out.println("p");
 
-        Person person = new Person("a", "b", "c", "d", 5);
-        Annons annons = new Annons("t", person, "a","b", 13,13,300, Category.Rubber_trees);
+        if (repository.count() == 0) {
+            System.out.println("databasen var tom");
+            Person person = new Person("a", "b", "c", "d", 5);
+            Annons annons = new Annons("t", person, "a", "b", 13, 13, 300, Category.Rubber_trees, null);
 
-        repository.save(annons);
-        //repository.save(person);
-
+            repository.save(annons);
+            //repository.save(person);
+        }
     }
 }

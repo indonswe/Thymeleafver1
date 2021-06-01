@@ -11,9 +11,7 @@
         <a th:href="@{/add-member}">Create your account</a>
         <a th:href="@{/login}">Login</a>
     </nav>
-
     <h1>List of ads</h1>
-
     <table>
         <thead>
             <tr>
@@ -26,7 +24,7 @@
             <tr th:each="dto : ${annonsDTOs}">
                 <td th:text="${dto.getName()}"></td>
                 <td th:text="${dto.getPrice()}"></td>
-                <img  th:src="@{'data:image/png;base64,'+${dto.getImage}}" />
+                <th scope="row"><img alt="" th:src="*{'data:image/jpg;base64,'+{dto.getImage}}" style="width: 100px;height: 100px;"></th>
             </tr>
         </tbody>
     </table>

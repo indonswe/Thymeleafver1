@@ -19,6 +19,7 @@ public class Annons {
     private int size_of_buildings;
     private int price;
     private Category category;
+    @Column (columnDefinition = "LONGBLOB")
     private byte[] image;
 
     public Annons(String name, Person person, String provins, String kommun, int size_of_area, int size_of_buildings, int price, Category category, byte[] image) {

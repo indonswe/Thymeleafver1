@@ -54,6 +54,7 @@ public class AddBlasterController {
     @RequestParam("size_of_buildings") int size_of_buildings,
     @RequestParam("price") int price,
     @RequestParam("category") Category category,
+
     @RequestParam("image") MultipartFile image) throws IOException {
 
         repository.save(new Annons(name, loged, provins,kommun,size_of_area,size_of_buildings,price,category, image.getBytes()));
@@ -64,4 +65,6 @@ public class AddBlasterController {
 
         return "redirect:/";
     }
+
+    //columnDefinition = "LONGBLOB"
 }

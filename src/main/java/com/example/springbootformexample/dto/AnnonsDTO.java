@@ -90,6 +90,9 @@ public class AnnonsDTO {
     }
 
     public byte[] getImage() {
+
+        // image = "data:image/png;base64,R0lGODlhlgCWAMQAAPz8/N3d3eX.../big image
+
         return image;
     }
 

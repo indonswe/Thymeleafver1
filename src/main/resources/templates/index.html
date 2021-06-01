@@ -26,8 +26,7 @@
             <tr th:each="dto : ${annonsDTOs}">
                 <td th:text="${dto.getName()}"></td>
                 <td th:text="${dto.getPrice()}"></td>
-                <td th:image="${dto.getImage()}"></td>
-                < img th:src="@{showImage(dto.getImage)}" / >
+                <img  th:src="@{'data:image/png;base64,'+${dto.getImage}}" />
             </tr>
         </tbody>
     </table>

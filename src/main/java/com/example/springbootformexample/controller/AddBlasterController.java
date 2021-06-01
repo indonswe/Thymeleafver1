@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.Base64;
 
 @Controller
 public class AddBlasterController {
@@ -57,7 +58,8 @@ public class AddBlasterController {
 
     @RequestParam("image") MultipartFile image) throws IOException {
 
-        repository.save(new Annons(name, loged, provins,kommun,size_of_area,size_of_buildings,price,category, image.getBytes()));
+        repository.save(new Annons(name, loged, provins,kommun,size_of_area,size_of_buildings,price,category,
+                (Base64.getEncoder().encodeToString(image.getBytes()))));
     /*public String addBlaster(@RequestParam("name") String name,
                              @RequestParam("capacity") int capacity,
                              @RequestParam("quality") BlasterAmmunitionQuality quality) {

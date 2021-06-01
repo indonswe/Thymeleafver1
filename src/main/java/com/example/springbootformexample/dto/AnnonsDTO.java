@@ -12,9 +12,9 @@ public class AnnonsDTO {
     private int size_of_buildings;
     private int price;
     private Category category;
-    private byte[] image;
+    private String image;
 
-    public AnnonsDTO(String name, Person person, String provins, String kommun, int size_of_area, int size_of_buildings, int price, Category category, byte[] image) {
+    public AnnonsDTO(String name, Person person, String provins, String kommun, int size_of_area, int size_of_buildings, int price, Category category, String image) {
         this.name = name;
         this.person = person;
         this.provins = provins;
@@ -23,6 +23,7 @@ public class AnnonsDTO {
         this.size_of_buildings = size_of_buildings;
         this.price = price;
         this.category = category;
+        this.image = image;
     }
 
     public String getName() {
@@ -89,14 +90,14 @@ public class AnnonsDTO {
         this.category = category;
     }
 
-    public byte[] getImage() {
+    public String getImage() {
 
         // image = "data:image/png;base64,R0lGODlhlgCWAMQAAPz8/N3d3eX.../big image
 
         return image;
     }
 
-    public void setImage(byte[] image) {
+    public void setImage(String image) {
         this.image = image;
     }
 }

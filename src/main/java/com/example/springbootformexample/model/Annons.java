@@ -20,9 +20,9 @@ public class Annons {
     private int price;
     private Category category;
     @Column (columnDefinition = "LONGBLOB")
-    private byte[] image;
+    private String image;
 
-    public Annons(String name, Person person, String provins, String kommun, int size_of_area, int size_of_buildings, int price, Category category, byte[] image) {
+    public Annons(String name, Person person, String provins, String kommun, int size_of_area, int size_of_buildings, int price, Category category, String image) {
         this.name = name;
         this.person = person;
         this.provins = provins;
@@ -99,11 +99,11 @@ public class Annons {
         this.category = category;
     }
 
-    public byte[] getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(byte[] image) {
+    public void setImage(String image) {
         this.image = image;
     }
 }

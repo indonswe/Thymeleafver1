@@ -18,14 +18,16 @@
         <thead>
             <tr>
                 <th>Name</th>
-                <th>Ammo Capacity</th>
-                <th>Ammo Quality</th>
+                <th>Price</th>
+                <th>Image</th>
             </tr>
         </thead>
         <tbody>
             <tr th:each="dto : ${annonsDTOs}">
                 <td th:text="${dto.getName()}"></td>
-
+                <td th:text="${dto.getPrice()}"></td>
+                <td th:image="${dto.getImage()}"></td>
+                < img th:src="@{showImage(dto.getImage)}" / >
             </tr>
         </tbody>
     </table>

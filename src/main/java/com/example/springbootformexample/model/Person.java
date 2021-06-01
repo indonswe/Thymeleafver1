@@ -10,11 +10,9 @@ public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
     private String email;
     private String name;
-    //private String lastName;
-    @Column(unique = true)
+    //@Column(unique = true)
     private String username;
     private String password;
     private int phonenumber;

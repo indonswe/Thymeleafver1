@@ -19,5 +19,9 @@ public interface AnnonsRepository extends CrudRepository<Annons, Integer> {
     @Query("SELECT new com.example.springbootformexample.dto.AnnonsDTO(b.name, b.person, b.provins, b.kommun, b.size_of_area, b.size_of_buildings, b.price, b.category, b.image) FROM Annons b WHERE b.person.id = :personen")
 
     Set<AnnonsDTO> findByPerson(@Param ("personen") Integer person_id);
+
+    @Query("SELECT new com.example.springbootformexample.dto.AnnonsDTO(b.name, b.person, b.provins, b.kommun, b.size_of_area, b.size_of_buildings, b.price, b.category, b.image) FROM Annons b ORDER BY b.price DESC")
+
+    Set<AnnonsDTO> sortByPriceDescDTO();
 }
 

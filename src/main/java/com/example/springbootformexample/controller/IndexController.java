@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class IndexController {
     //private final BlasterRepository repository;
     private final AnnonsRepository repository;
+    int sort = 1;
 
     @Autowired
     public IndexController(AnnonsRepository repository) {
@@ -22,21 +23,33 @@ public class IndexController {
 
     @PostMapping("/query")
 
-    public String query(@RequestParam("category") Category category){
+    public String query
+        (@RequestParam("category") Category category){
 
-        return "index";
+            return "index";
+
     }
 
     @PostMapping("/sortby")
 
     public String sort(@RequestParam("category") Category category){
-
+        if (category.equals("HOUSE")){
+            sort = 1;
+        }
+        else if (category.equals("FOREST")){
+            sort = 2;
+        }
         return "index";
     }
 
     @GetMapping("/")
     public String getIndexPage(Model model) {
-        model.addAttribute("annonsDTOs", repository.findAllAsDTO());
+       if (sort==1) {
+           model.addAttribute("annonsDTOs", repository.findAllAsDTO());
+       }
+       else if (sort==2) {
+           model.addAttribute("annonsDTOs", repository.sortByPriceDescDTO());
+       }
         System.out.println(repository.findByPerson(1));
 
 

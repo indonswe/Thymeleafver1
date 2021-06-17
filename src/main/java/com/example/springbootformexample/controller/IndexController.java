@@ -44,13 +44,16 @@ public class IndexController {
 
     @GetMapping("/")
     public String getIndexPage(Model model) {
-       if (sort==1) {
+
+        model.addAttribute("balanceAccount", new java.util.Date());
+
+        /*if (sort==1) {
            model.addAttribute("annonsDTOs", repository.findAllAsDTO());
        }
        else if (sort==2) {
            model.addAttribute("annonsDTOs", repository.sortByPriceDescDTO());
        }
-        System.out.println(repository.findByPerson(1));
+        System.out.println(repository.findByPerson(1));*/
 
 
 

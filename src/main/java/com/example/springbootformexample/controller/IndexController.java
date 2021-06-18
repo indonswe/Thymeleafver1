@@ -35,7 +35,7 @@ public class IndexController {
 
     @PostMapping("/sortby")
 
-    public String sort(@RequestParam("category") Category category){
+    public String sort(@RequestParam("category") Category category, Model model){
         if (category.equals("HOUSE")){
             account1 = account.deposit(100);
 
@@ -53,11 +53,13 @@ public class IndexController {
         System.out.println(account.getBalanceAccount());
 
 
-
-        return "index";
+        model.addAttribute("balanceAccount", account1);
+        return "redirect:/index";
+        //return "redirect:/index";
     }
 
-    @GetMapping("/")
+    //@GetMapping({"/", "/index", ""})
+    @GetMapping("/index")
     public String getIndexPage(Model model) {
 
         System.out.println(account.getBalanceAccount());

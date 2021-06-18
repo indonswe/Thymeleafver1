@@ -3,6 +3,7 @@ package com.example.springbootformexample.controller;
 import com.example.springbootformexample.data.AnnonsRepository;
 import com.example.springbootformexample.data.PersonRepository;
 import com.example.springbootformexample.model.Annons;
+import com.example.springbootformexample.model.BankAccount;
 import com.example.springbootformexample.model.Category;
 import com.example.springbootformexample.model.Person;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class AddMemberController {
     private final PersonRepository repository;
+
+    BankAccount account = new BankAccount(500, "Kalle", "Anka", 12345);
+
+    int account1;
 
     @Autowired
     public AddMemberController(PersonRepository repository) {
@@ -52,6 +57,8 @@ public class AddMemberController {
                              @RequestParam("capacity") int capacity,
                              @RequestParam("quality") BlasterAmmunitionQuality quality) {
         repository.save(new Annons(name, capacity, quality));*/
+
+                            account1 = account.deposit(100);
 
         return "redirect:/";
     }

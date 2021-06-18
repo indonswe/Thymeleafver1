@@ -3,10 +3,12 @@ package com.example.springbootformexample.controller;
 import com.example.springbootformexample.data.AnnonsRepository;
 import com.example.springbootformexample.data.BlasterRepository;
 import com.example.springbootformexample.data.People;
+import com.example.springbootformexample.data.TodoItems;
 import com.example.springbootformexample.dto.PeopleDTO;
 import com.example.springbootformexample.model.BankAccount;
 import com.example.springbootformexample.model.Category;
 import com.example.springbootformexample.model.PersonTodo;
+import com.example.springbootformexample.model.Todo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,6 +27,7 @@ public class IndexController {
     String person3LastName = "Empty";
     PeopleDTO id3 = new PeopleDTO(People.size());
     int lastPeople;
+    Todo todo1 = new Todo("First", true);
 
     @Autowired
     public IndexController(AnnonsRepository repository) {
@@ -37,6 +40,13 @@ public class IndexController {
         (@RequestParam("category") Category category){
 
         System.out.println("Query");
+
+        System.out.println(TodoItems.size());
+
+        Todo todo2 = new Todo("Run", false);
+
+        System.out.println(TodoItems.size());
+
         /*People.clear();
         String firstName = "Kalle";
         String lastName = "Anka";
@@ -58,19 +68,21 @@ public class IndexController {
 
     public String sort(@RequestParam("category") Category category){
         System.out.println(category);
-        if (category.equals("Pires")){
+        if (category.toString() == "H"){
             PersonTodo person2 = new PersonTodo("Robert","Pires");
             account1 = account.deposit(100);
             sort = 1;
+            System.out.println(category);
         }
-        else if (category.equals("Keown")){
+        else if (category.equals("FOREST")){
             PersonTodo person2 = new PersonTodo("Martin","Keown");
             account1 = account.withdraw(100);
             sort = 2;
+            System.out.println(category);
         }
 
         account1 = account.deposit(100);
-
+        System.out.println(account1);
 
         //id3.setFoundId(3);
         //PersonTodo person3 = People.findById(3);
@@ -100,8 +112,11 @@ public class IndexController {
         System.out.println(person3);
         String person3LastName = person3.getLastName();
         System.out.println(person3LastName);
+        Todo one = TodoItems.findById(TodoItems.size());
+        one.setAssignee(person3);
+        String desc = one.getDescription();
         model.addAttribute("person1", person3LastName);
-        model.addAttribute("balanceAccount", person3LastName);
+        model.addAttribute("todoone", desc);
 
         //model.addAttribute("balanceAccount", account1);
 

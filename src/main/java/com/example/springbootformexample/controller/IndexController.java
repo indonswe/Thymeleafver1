@@ -23,7 +23,7 @@ public class IndexController {
     int account1;
     PersonTodo person1 = new PersonTodo("a","b");
     String person3LastName = "Empty";
-    PeopleDTO id3 = new PeopleDTO(1);
+    PeopleDTO id3 = new PeopleDTO(People.size());
     int lastPeople;
 
     @Autowired
@@ -69,11 +69,9 @@ public class IndexController {
         }
 
         account1 = account.deposit(100);
-
         PersonTodo person2 = new PersonTodo("c","d");
         id3.setSize(People.size());
         System.out.println(People.size());
-
         //id3.setFoundId(3);
         //PersonTodo person3 = People.findById(3);
         //System.out.println(person3LastName);
@@ -97,7 +95,9 @@ public class IndexController {
         //account1 = 15;
 
         System.out.println(person3LastName);
-        PersonTodo person3 = People.findById(id3.getSize());
+        PersonTodo person3 = People.findById(People.size());
+        System.out.println(id3.getFoundId());
+        System.out.println(person3);
         String person3LastName = person3.getLastName();
         System.out.println(person3LastName);
         model.addAttribute("person1", person3LastName);

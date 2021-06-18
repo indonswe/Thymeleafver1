@@ -42,6 +42,17 @@ public class People {
         return newPersonTodo; //Returns new Person
     }
 
+    public static PersonTodo add(PersonTodo personTodo) {
+        //PersonTodo newPersonTodo = new PersonTodo(); //Create a Person
+        //newPersonTodo.setFirstName(firstName);
+        //newPersonTodo.setLastName(lastName);
+        PersonTodo[] newArray = Arrays.copyOf(peopleArray, peopleArray.length + 1); //Make bigger array
+        newArray[newArray.length - 1] = personTodo; //Put the new Person in the bigger array
+        People.peopleArray = newArray; //Makes the Person array same as the bigger array
+        return personTodo; //Returns new Person
+    }
+
+
     public static void clear() {
         if (peopleArray == null) {
             //System.out.println("Name list is not initialized, now initialized.");

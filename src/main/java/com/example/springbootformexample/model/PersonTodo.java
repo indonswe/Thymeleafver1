@@ -20,7 +20,7 @@ public class PersonTodo {
         this.firstName = firstName;
         this.lastName = lastName;
         this.personId=myPersonSequencerObject.nextPersonId();
-        People.add(firstName,lastName);
+        People.add(this);
     }
 
     public PersonTodo(){
@@ -42,5 +42,15 @@ public class PersonTodo {
     }
     public int getPersonId() {
         return this.personId;
+    }
+
+    @Override
+    public String toString() {
+        return "PersonTodo{" +
+                "myPersonSequencerObject=" + myPersonSequencerObject +
+                ", personId=" + personId +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                '}';
     }
 }

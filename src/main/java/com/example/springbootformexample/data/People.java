@@ -10,6 +10,8 @@ public class People {
     private static PersonTodo[] peopleArray = new PersonTodo[0]; // Array with all Person objects
     private static PersonTodo[] peopleArrayEmpty = new PersonTodo[0]; //For clearing peopleArray
 
+
+
     public static int size() {
         return peopleArray.length;
     } // To know how big the arrays with persons are

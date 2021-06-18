@@ -1,6 +1,7 @@
 package com.example.springbootformexample.model;
 
 
+import com.example.springbootformexample.data.People;
 import com.example.springbootformexample.data.PersonSequencer;
 
 public class PersonTodo {
@@ -13,6 +14,15 @@ public class PersonTodo {
     private String lastName;
 
     //Constructor
+
+
+    public PersonTodo(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.personId=myPersonSequencerObject.nextPersonId();
+        People.add(firstName,lastName);
+    }
+
     public PersonTodo(){
         this.personId = myPersonSequencerObject.nextPersonId();
     }

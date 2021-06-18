@@ -28,7 +28,7 @@
     <form th:action="@{/sortby}" method="post">
 
         <label for="category">Category: </label>
-        <select name="category" id="category" required>
+        <select name="category" id="categoryr" required>
             <option value="">--Please choose an option--</option>
             <option value="H">Pires</option>
             <option value="FOREST">Keown</option>
@@ -55,6 +55,12 @@
             <p th:text="'TodoItem: '+${todoone}"></p>
 
         </tr>
+        <tr>
+
+                <option th:each="category : ${categories}" th:value="${category.todoId}" th:utext="${category.description}"/>
+
+        </tr>
+
        <!--
         <tr>
 

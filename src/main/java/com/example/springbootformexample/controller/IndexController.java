@@ -101,6 +101,9 @@ public class IndexController {
         //return "redirect:/index";
     }
 
+
+
+
     //@GetMapping({"/", "/index", ""})
     @GetMapping("/index")
     public String getIndexPage(Model model) {
@@ -120,6 +123,8 @@ public class IndexController {
         String desc = one.getDescription();
         model.addAttribute("person1", person3LastName);
         model.addAttribute("todoone", desc);
+        Todo[] thymeleaf = TodoItems.findAll();
+        model.addAttribute("categories",thymeleaf);
 
         //model.addAttribute("balanceAccount", account1);
 

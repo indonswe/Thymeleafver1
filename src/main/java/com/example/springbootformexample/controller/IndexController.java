@@ -48,9 +48,9 @@ public class IndexController {
 
         account1 = account.deposit(100);
 
-        System.out.println(sort);
-
-        System.out.println(account.getBalanceAccount());
+        ///
+        //System.out.println(sort);
+        //System.out.println(account.getBalanceAccount());
 
 
         model.addAttribute("balanceAccount", account1);
@@ -61,8 +61,6 @@ public class IndexController {
     //@GetMapping({"/", "/index", ""})
     @GetMapping("/index")
     public String getIndexPage(Model model) {
-
-        System.out.println(account.getBalanceAccount());
 
         account1 = account.getBalanceAccount();
 

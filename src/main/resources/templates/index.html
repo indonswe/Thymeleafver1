@@ -56,9 +56,12 @@
 
         </tr>
         <tr>
-
-                <option th:each="category : ${categories}" th:value="${category.todoId}" th:utext="${category.description}"/>
-
+                <tr th:each="category : ${categories}">
+                    <td th:utext="${category.todoId}"></td>
+                    <td th:utext="${category.description}"></td>
+                    <td th:utext="${category.done}"></td>
+                    <td th:utext="${category.assignee}"></td>
+                </tr>
         </tr>
 
        <!--

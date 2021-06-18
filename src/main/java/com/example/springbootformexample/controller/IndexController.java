@@ -23,11 +23,11 @@ public class IndexController {
     int sort = 0;
     BankAccount account = new BankAccount(500, "Kalle", "Anka", 12345);
     int account1;
-    PersonTodo person1 = new PersonTodo("a","b");
+    PersonTodo person1 = new PersonTodo("Fredrik","Ljungberg");
     String person3LastName = "Empty";
     PeopleDTO id3 = new PeopleDTO(People.size());
     int lastPeople;
-    Todo todo1 = new Todo("First", true);
+    Todo todo1 = new Todo("Technique", false);
 
     @Autowired
     public IndexController(AnnonsRepository repository) {
@@ -73,12 +73,16 @@ public class IndexController {
         System.out.println(category);
         if (category.toString() == "H"){
             PersonTodo person2 = new PersonTodo("Robert","Pires");
+            Todo one = TodoItems.findById(TodoItems.size());
+            one.setAssignee(person2);
             account1 = account.deposit(100);
             sort = 1;
             System.out.println(category);
         }
         else if (category.toString()=="FOREST"){
             PersonTodo person2 = new PersonTodo("Martin","Keown");
+            Todo one = TodoItems.findById(TodoItems.size());
+            one.setAssignee(person2);
             account1 = account.withdraw(100);
             sort = 2;
             System.out.println(category);
@@ -119,7 +123,6 @@ public class IndexController {
         String person3LastName = person3.getLastName();
         System.out.println(person3LastName);
         Todo one = TodoItems.findById(TodoItems.size());
-        one.setAssignee(person3);
         String desc = one.getDescription();
         model.addAttribute("person1", person3LastName);
         model.addAttribute("todoone", desc);

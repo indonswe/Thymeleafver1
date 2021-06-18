@@ -11,22 +11,20 @@
         <a th:href="@{/add-member}">Create your account</a>
         <a th:href="@{/login}">Login</a>
     </nav>
-    <h1>List of ads</h1>
-    <h2>Choose</h2>
+    <h1>Choose your activity</h1>
+    <h2>TodoItems</h2>
     <form th:action="@{/query}" method="post">
 
         <label for="category">Category: </label>
         <select name="category" id="categoryq" required>
             <option value="">--Please choose an option--</option>
-            <option value="House">House</option>
-            <option value="Forest">Forest</option>
-            <option value="Rubber_trees">Rubber trees</option>
-            <option value="House_and_forest">House and forest</option>
+            <option value="H">Run</option>
+            <option value="FOREST">Defending</option>
         </select>
 
-        <input type="submit" value="Choose" />
+        <input type="submit" value="query" />
     </form>
-    <h2>Sort by</h2>
+    <h2>People</h2>
     <form th:action="@{/sortby}" method="post">
 
         <label for="category">Category: </label>

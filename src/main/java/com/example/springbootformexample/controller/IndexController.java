@@ -41,11 +41,15 @@ public class IndexController {
 
         System.out.println("Query");
 
-        System.out.println(TodoItems.size());
+        if (category.toString() == "H"){
+            Todo todo2 = new Todo("Run", false);
+        }
+        else if (category.toString()=="FOREST"){
+            Todo todo2 = new Todo("Defend", false);
+            System.out.println(category);
+        }
 
-        Todo todo2 = new Todo("Run", false);
 
-        System.out.println(TodoItems.size());
 
         /*People.clear();
         String firstName = "Kalle";
@@ -57,8 +61,7 @@ public class IndexController {
         People.add(firstName, lastName);
         People.add(firstName2, lastName2);
         People.add(firstName3, lastName3);*/
-        id3.setSize(People.size());
-        System.out.println(People.size());
+
 
         return "redirect:/index";
 
@@ -74,7 +77,7 @@ public class IndexController {
             sort = 1;
             System.out.println(category);
         }
-        else if (category.equals("FOREST")){
+        else if (category.toString()=="FOREST"){
             PersonTodo person2 = new PersonTodo("Martin","Keown");
             account1 = account.withdraw(100);
             sort = 2;
@@ -108,7 +111,7 @@ public class IndexController {
 
         System.out.println(person3LastName);
         PersonTodo person3 = People.findById(People.size());
-        System.out.println(id3.getFoundId());
+        //System.out.println(id3.getFoundId());
         System.out.println(person3);
         String person3LastName = person3.getLastName();
         System.out.println(person3LastName);

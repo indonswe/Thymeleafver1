@@ -2,8 +2,10 @@ package com.example.springbootformexample.controller;
 
 import com.example.springbootformexample.data.AnnonsRepository;
 import com.example.springbootformexample.data.BlasterRepository;
+import com.example.springbootformexample.data.People;
 import com.example.springbootformexample.model.BankAccount;
 import com.example.springbootformexample.model.Category;
+import com.example.springbootformexample.model.PersonTodo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +20,11 @@ public class IndexController {
     int sort = 0;
     BankAccount account = new BankAccount(500, "Kalle", "Anka", 12345);
     int account1;
+    String person3LastName = "Empty";
+
+
+
+
 
     @Autowired
     public IndexController(AnnonsRepository repository) {
@@ -29,13 +36,27 @@ public class IndexController {
     public String query
         (@RequestParam("category") Category category){
 
-            return "index";
+        System.out.println("Query");
+        People.clear();
+        String firstName = "Kalle";
+        String lastName = "Anka";
+        String firstName2 = "Dorian";
+        String lastName2 = "Yates";
+        String firstName3 = "Robert";
+        String lastName3 = "Pires";
+        People.add(firstName, lastName);
+        People.add(firstName2, lastName2);
+        People.add(firstName3, lastName3);
+
+
+        return "redirect:/index";
 
     }
 
     @PostMapping("/sortby")
 
     public String sort(@RequestParam("category") Category category, Model model){
+        System.out.println(category);
         if (category.equals("HOUSE")){
             account1 = account.deposit(100);
 
@@ -47,13 +68,16 @@ public class IndexController {
         }
 
         account1 = account.deposit(100);
-
+        PersonTodo person3 = People.findById(3);
+        String person3LastName = person3.getLastName();
+        System.out.println(person3LastName);
+        model.addAttribute("balanceAccount", person3LastName);
         ///
         //System.out.println(sort);
         //System.out.println(account.getBalanceAccount());
 
 
-        model.addAttribute("balanceAccount", account1);
+        //model.addAttribute("balanceAccount", account1);
         return "redirect:/index";
         //return "redirect:/index";
     }
@@ -66,7 +90,11 @@ public class IndexController {
 
         //account1 = 15;
 
-        model.addAttribute("balanceAccount", account1);
+        System.out.println(person3LastName);
+
+        //model.addAttribute("balanceAccount", person3LastName);
+
+        //model.addAttribute("balanceAccount", account1);
 
         //model.addAttribute("balanceAccount", new java.util.Date());
 
@@ -82,4 +110,6 @@ public class IndexController {
 
         return "index";
     }
+
+
 }

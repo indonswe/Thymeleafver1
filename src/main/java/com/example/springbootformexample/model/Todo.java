@@ -1,5 +1,9 @@
 package com.example.springbootformexample.model;
 
+import com.example.springbootformexample.data.People;
+import com.example.springbootformexample.data.TodoItems;
+import com.example.springbootformexample.data.TodoSequencer;
+
 public class Todo {
 
     //fields
@@ -9,12 +13,19 @@ public class Todo {
     private com.example.springbootformexample.model.PersonTodo assignee;
 
     //Constructor
-    public Todo(int todoId,String description){
+    public Todo(String description, boolean done) {
+        this.description = description;
+        this.done = done;
+        this.todoId= TodoSequencer.nextTodoId();
+        TodoItems.add(this);
+    }
+
+    /*public Todo(int todoId,String description){
         this.todoId = todoId;
         this.description = description;
         //this.done = false;
         //this.assignee = null;
-    }
+    }*/
 
     //Getters and setters
     public void setDescription(String description){

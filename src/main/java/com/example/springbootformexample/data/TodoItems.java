@@ -27,7 +27,7 @@ public class TodoItems {
         }
         return toDoArray[answer]; //Returns a specific wanted toDoItem
     }
-    public static Todo add(String description, boolean done){
+    /*public static Todo add(String description, boolean done){
         int toDoId = com.example.springbootformexample.data.TodoSequencer.nextTodoId();
         Todo newTodo = new Todo(toDoId, description);//Create a toDoItem
         newTodo.setDone(done);
@@ -35,6 +35,15 @@ public class TodoItems {
         newArray[newArray.length-1] = newTodo;//Put the new toDoItem in the bigger array
         toDoArray = newArray;//Makes the toDoarray same as the bigger array
         return newTodo;//Returns new toDoItem
+    }*/
+    public static Todo add(Todo todo){
+        //int toDoId = com.example.springbootformexample.data.TodoSequencer.nextTodoId();
+        //Todo newTodo = new Todo(toDoId, description);//Create a toDoItem
+        //newTodo.setDone(done);
+        Todo[] newArray = Arrays.copyOf(toDoArray, toDoArray.length + 1);//make big array
+        newArray[newArray.length-1] = todo;//Put the new toDoItem in the bigger array
+        toDoArray = newArray;//Makes the toDoarray same as the bigger array
+        return todo;//Returns new toDoItem
     }
     public static void clear(){
         if (toDoArray == null) {

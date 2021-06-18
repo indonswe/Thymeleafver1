@@ -58,20 +58,20 @@ public class IndexController {
 
     public String sort(@RequestParam("category") Category category){
         System.out.println(category);
-        if (category.equals("HOUSE")){
+        if (category.equals("Pires")){
+            PersonTodo person2 = new PersonTodo("Robert","Pires");
             account1 = account.deposit(100);
-
             sort = 1;
         }
-        else if (category.equals("FOREST")){
+        else if (category.equals("Keown")){
+            PersonTodo person2 = new PersonTodo("Martin","Keown");
             account1 = account.withdraw(100);
             sort = 2;
         }
 
         account1 = account.deposit(100);
-        PersonTodo person2 = new PersonTodo("c","d");
-        id3.setSize(People.size());
-        System.out.println(People.size());
+
+
         //id3.setFoundId(3);
         //PersonTodo person3 = People.findById(3);
         //System.out.println(person3LastName);

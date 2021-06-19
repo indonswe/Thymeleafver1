@@ -108,14 +108,16 @@ public class IndexController {
 
     @RequestMapping(value="/clearTodoItem")
     public String clearTodoItem() {
-        System.out.println(TodoItems.size());
         TodoItems.clear();
+        System.out.println("Number clear: " + TodoItems.size());
         return "redirect:/index";
     }
 
     @RequestMapping(value="/eraseTodoItem")
     public String eraseTodoItem() {
+        System.out.println("Number erase: " + TodoItems.size());
         Boolean erase = TodoItems.remove(TodoItems.size());
+        System.out.println("Number erase: " + TodoItems.size());
         return "redirect:/index";
     }
 
@@ -132,16 +134,15 @@ public class IndexController {
         PersonTodo person3 = People.findById(People.size());
         String person3LastName = person3.getLastName();
         Todo one = TodoItems.findById(TodoItems.size());
-        //if (one.equals(null))
-        String desc = one.getDescription();
-        model.addAttribute("person1", person3LastName);
-        model.addAttribute("todoone", desc);
-        Todo[] thymeleaf = TodoItems.findAll();
-        model.addAttribute("categories",thymeleaf);
+        if (one != null) {
+            String desc = one.getDescription();
+            model.addAttribute("person1", person3LastName);
+            model.addAttribute("todoone", desc);
+            Todo[] thymeleaf = TodoItems.findAll();
+            model.addAttribute("categories", thymeleaf);
+        }
+        else{ }
 
-        //model.addAttribute("balanceAccount", account1);
-
-        //model.addAttribute("balanceAccount", new java.util.Date());
 
         /*if (sort==1) {
            model.addAttribute("annonsDTOs", repository.findAllAsDTO());

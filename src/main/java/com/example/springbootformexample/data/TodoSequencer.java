@@ -11,4 +11,6 @@ public class TodoSequencer {
     public static void reset() {
         TodoSequencer.todoId = 0;
     }
+
+    public static void lastTodoId(){TodoSequencer.todoId = --todoId;}
 }

@@ -18,18 +18,22 @@ public class TodoItems {
         return toDoArray; //Access all toDoItems
     }
     public static Todo findById(int toDoId){
-        int answer = 0;
+        System.out.println("todoid: " + toDoId);
+        int answer = -1;
         for (int i = 0; i< toDoArray.length; i++){
             if (toDoArray[i].getTodoId() == (toDoId)){
                 answer = i;// Saves the wanted toDoItems place in the Array so we return the right one
                 break;
             }
         }
-        if (answer==0) {
-            return null;
+        //System.out.println(toDoArray[answer]);
+
+        System.out.println(answer);
+        if (answer<0) {
+           return null;
         }
         else {
-            return toDoArray[answer]; //Returns a specific wanted toDoItem
+        return toDoArray[answer]; //Returns a specific wanted toDoItem
         }
     }
     /*public static Todo add(String description, boolean done){
@@ -58,17 +62,23 @@ public class TodoItems {
         }
         com.example.springbootformexample.data.TodoSequencer.reset();// personId reset to value 0
         toDoArray = toDoEmpty;//Empty toDoarray
+        TodoSequencer.reset();
     }
     public static boolean remove(int toDoId) {
         boolean isDeleted = false;
         if (toDoArray.length == 0) {
             System.out.println("Array is empty");
-        } else if ((itemExist(toDoId))) {
+        }else if(toDoArray.length==1) {
+            toDoArray=toDoEmpty;
+            TodoSequencer.lastTodoId();
+        }
+        else if ((itemExist(toDoId))) {
             Todo[] newArray = new Todo[toDoArray.length - 1];
             for (int i = 0, j = 0; i < toDoArray.length; i++, j++) {
                 if (toDoArray[i].getTodoId() == (toDoId)) {
                     --j;// toDoItem is removed
                     isDeleted = true;//Remove action finished
+                    TodoSequencer.lastTodoId();
                 } else {
                     newArray[j] = toDoArray[i];// To save those toDoItems that should not be removed
                 }

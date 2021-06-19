@@ -47,7 +47,6 @@ public class PersonTodo {
     @Override
     public String toString() {
         return "PersonTodo{" +
-                "myPersonSequencerObject=" + myPersonSequencerObject +
                 ", personId=" + personId +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +

@@ -49,88 +49,39 @@ public class IndexController {
             Todo todo2 = new Todo("Defend", false);
             System.out.println(category);
         }
-
-
-
-        /*People.clear();
-        String firstName = "Kalle";
-        String lastName = "Anka";
-        String firstName2 = "Dorian";
-        String lastName2 = "Yates";
-        String firstName3 = "Robert";
-        String lastName3 = "Pires";
-        People.add(firstName, lastName);
-        People.add(firstName2, lastName2);
-        People.add(firstName3, lastName3);*/
-
-
         return "redirect:/index";
-
     }
 
     @PostMapping("/sortby")
-
     public String sort(@RequestParam("category") Category category){
-        System.out.println(category);
-        if (category.toString() == "H"){
+        if (category.toString() == "H"){ //Using enum from another project
             PersonTodo person2 = new PersonTodo("Robert","Pires");
             Todo one = TodoItems.findById(TodoItems.size());
             one.setAssignee(person2);
-            account1 = account.deposit(100);
-            sort = 1;
-            System.out.println(category);
         }
-        else if (category.toString()=="FOREST"){
+        else if (category.toString()=="FOREST"){ //Using enum from another project
             PersonTodo person2 = new PersonTodo("Martin","Keown");
             Todo one = TodoItems.findById(TodoItems.size());
             one.setAssignee(person2);
-            account1 = account.withdraw(100);
-            sort = 2;
-            System.out.println(category);
         }
-
-        account1 = account.deposit(100);
-        System.out.println(account1);
-
-        //id3.setFoundId(3);
-        //PersonTodo person3 = People.findById(3);
-        //System.out.println(person3LastName);
-        //model.addAttribute("balanceAccount", person3LastName);
-        ///
-        //System.out.println(sort);
-        //System.out.println(account.getBalanceAccount());
-
-
-        //model.addAttribute("balanceAccount", account1);
         return "redirect:/index";
-        //return "redirect:/index";
     }
 
     @RequestMapping(value="/clearTodoItem")
     public String clearTodoItem() {
         TodoItems.clear();
-        System.out.println("Number clear: " + TodoItems.size());
         return "redirect:/index";
     }
 
     @RequestMapping(value="/eraseTodoItem")
     public String eraseTodoItem() {
-        System.out.println("Number erase: " + TodoItems.size());
         Boolean erase = TodoItems.remove(TodoItems.size());
-        System.out.println("Number erase: " + TodoItems.size());
         return "redirect:/index";
     }
 
-
-    //@GetMapping({"/", "/index", ""})
+    //@GetMapping({"/", "/index", ""}) save line for future development
     @GetMapping("/index")
     public String getIndexPage(Model model) {
-
-        account1 = account.getBalanceAccount();
-
-        //account1 = 15;
-
-        System.out.println("Getmapping: " + TodoItems.size());
         PersonTodo person3 = People.findById(People.size());
         String person3LastName = person3.getLastName();
         Todo one = TodoItems.findById(TodoItems.size());
@@ -141,19 +92,7 @@ public class IndexController {
             Todo[] thymeleaf = TodoItems.findAll();
             model.addAttribute("categories", thymeleaf);
         }
-        else{ }
-
-
-        /*if (sort==1) {
-           model.addAttribute("annonsDTOs", repository.findAllAsDTO());
-       }
-       else if (sort==2) {
-           model.addAttribute("annonsDTOs", repository.sortByPriceDescDTO());
-       }
-        System.out.println(repository.findByPerson(1));*/
-
-
-
+        //else{ }
         return "index";
     }
 

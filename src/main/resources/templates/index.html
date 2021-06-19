@@ -15,7 +15,7 @@
     <h2>TodoItems</h2>
     <form th:action="@{/query}" method="post">
 
-        <label for="category">Category: </label>
+        <label for="categoryq">Category: </label>
         <select name="category" id="categoryq" required>
             <option value="">--Please choose an option--</option>
             <option value="H">Run</option>
@@ -27,7 +27,7 @@
     <h2>People</h2>
     <form th:action="@{/sortby}" method="post">
 
-        <label for="category">Category: </label>
+        <label for="categoryr">Category: </label>
         <select name="category" id="categoryr" required>
             <option value="">--Please choose an option--</option>
             <option value="H">Pires</option>
@@ -39,9 +39,9 @@
     <table>
         <thead>
             <tr>
-                <th>Name</th>
-                <th>Price</th>
-                <th>Image</th>
+                <th>Todo-id</th>
+                <th>Description</th>
+                <th>Done</th>
             </tr>
         </thead>
         <tbody>
@@ -64,7 +64,13 @@
                 </tr>
         </tr>
 
-       <!--
+        <button type="button" th:onclick="|window.location.href='/eraseTodoItem'|">Remove last TodoItem</button>
+        <th></th>
+        <button type="button" th:onclick="|window.location.href='/clearTodoItem'|">Clear all TodoItems</button>
+
+        <!--<input type="submit" value="Remove" />-->
+
+        <!--
         <tr>
 
            <p th:text="'The amount of money on the account: '+${balanceAccount}"></p>

@@ -14,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
@@ -105,7 +106,18 @@ public class IndexController {
         //return "redirect:/index";
     }
 
+    @RequestMapping(value="/clearTodoItem")
+    public String clearTodoItem() {
+        System.out.println(TodoItems.size());
+        TodoItems.clear();
+        return "redirect:/index";
+    }
 
+    @RequestMapping(value="/eraseTodoItem")
+    public String eraseTodoItem() {
+        Boolean erase = TodoItems.remove(TodoItems.size());
+        return "redirect:/index";
+    }
 
 
     //@GetMapping({"/", "/index", ""})
@@ -116,13 +128,11 @@ public class IndexController {
 
         //account1 = 15;
 
-        System.out.println(person3LastName);
+        System.out.println("Getmapping: " + TodoItems.size());
         PersonTodo person3 = People.findById(People.size());
-        //System.out.println(id3.getFoundId());
-        System.out.println(person3);
         String person3LastName = person3.getLastName();
-        System.out.println(person3LastName);
         Todo one = TodoItems.findById(TodoItems.size());
+        //if (one.equals(null))
         String desc = one.getDescription();
         model.addAttribute("person1", person3LastName);
         model.addAttribute("todoone", desc);

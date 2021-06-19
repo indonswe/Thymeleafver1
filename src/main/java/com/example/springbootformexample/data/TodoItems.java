@@ -25,7 +25,12 @@ public class TodoItems {
                 break;
             }
         }
-        return toDoArray[answer]; //Returns a specific wanted toDoItem
+        if (answer==0) {
+            return null;
+        }
+        else {
+            return toDoArray[answer]; //Returns a specific wanted toDoItem
+        }
     }
     /*public static Todo add(String description, boolean done){
         int toDoId = com.example.springbootformexample.data.TodoSequencer.nextTodoId();
